@@ -37,17 +37,15 @@ function handleSubmit(event){
     toDoInput.value="";
 }
 
-function somethin(){
-    console.log(toDO.text);
+function something(){
+    console.log(toDo.text);
 }
 
 function loadToDos(){
     const loadedToDos = localStorage.getItem(TODOS_LS);
-    if(loadedToDos !== null){
+    if(loadedToDos !== null) {
         const parsedToDos = JSON.parse(loadedToDos);
-        parsedToDos.forEach(function(toDo){
-            paintToDo(toDo.text);
-        });
+        parsedToDos.forEach(something);
     } 
 }
 
