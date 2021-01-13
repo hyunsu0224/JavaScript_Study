@@ -1,15 +1,30 @@
+// 어플리케이션에 데이터를 넣고 삭제하는 방법에 대한 강의
+
+
 const toDoForm  = document.querySelector(".js-toDoForm"),
     toDoInput = toDoForm.querySelector("input"),
     toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = 'toDos';
 
-const toDos = [];
+// function filterFn(toDo) {
+//     return toDo.id ===1
+// }
+
+
+let toDos = [];
 
 function deleteToDo(event) {
     const btn = event.target;
     const li = btn.parentNode;
     toDoList.removeChild(li);
+    const cleanToDos = toDos.filter(function(toDo) {
+        console.log(li.id);
+        return toDo.id !== parseInt(li.id);      //parseInt는 문자를 숫자형태로 변경이 가능하다.
+    });
+    toDos = cleanToDos;
+    // console.log(cleanToDos);
+    saveToDos();
 }
 
 function saveToDos() {
